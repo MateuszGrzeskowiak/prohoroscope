@@ -25,13 +25,6 @@ public class Connector {
 
     }
 
-    public static void getHoroscopeText(String pageAsText) {
-        Pattern pattern = Pattern.compile("<p class=\"lead\">");
-        Matcher matcher = pattern.matcher(pageAsText);
-        if (matcher.find()) {
-            String result = matcher.group();
-            System.out.println(result);
 
-        }
-    }
+
 }

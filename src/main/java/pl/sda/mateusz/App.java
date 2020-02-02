@@ -9,12 +9,12 @@ public class App
     public static void main( String[] args ){
         System.out.println( "Podaj znak zodiaku pisany w języku polskim, małymi literami" );
         Scanner scan = new Scanner(System.in);
-        String requestResult = Connector.getPage(scan.nextLine());
-        System.out.println(requestResult);
-        if (requestResult.equals(Connector.NOT_FOUND)){
-            System.out.println(requestResult);
+        String userInput = scan.nextLine();
+        String requestResult = Connector.getPage(userInput);
+        String horoscopeMessage = "";
+        if (!requestResult.equals(Connector.NOT_FOUND)){
+            horoscopeMessage = HoroscopeExtractor.getHoroscopeText(requestResult);
         }
-
-
+        System.out.println(horoscopeMessage);
     }
 }
