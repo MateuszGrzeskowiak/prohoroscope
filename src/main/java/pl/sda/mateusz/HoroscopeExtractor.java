@@ -13,7 +13,17 @@ public class HoroscopeExtractor {
         String foundText = "";
        if (horoscopeMatcher.find()) {
            foundText = horoscopeMatcher.group();
+
        }
-        return foundText;
+        return clearText(foundText);
     }
+
+    private static String clearText(String rawText){
+        return rawText
+                .replace("<p class=\"lead\">", "")
+                .replace("</p>", "")
+                .replace(". ", ".\n");
+
+    }
+
 }
